@@ -62,7 +62,7 @@ jobs:
           BRANCH: markdown
           FOLDER: build
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          SQUASH_HISTORY: true
+          SQUASH_HISTORY: false
   # after changing something, we need to trigger the website build
   # trigger-website-build:
   #   if: github.event_name == 'push' && github.ref_type == 'tag'
