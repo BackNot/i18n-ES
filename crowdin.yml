@@ -1,0 +1,3 @@
+files:
+  - source: /model
+    translation: '%two_letters_code%/model/%original_file_name%'
