@@ -4,10 +4,10 @@ on:
   workflow_dispatch:
     inputs:
       source_branch:
-        description: 'The branch to pull from the source repository'
+        description: 'The core repository branch to pull translation YAML files from'
         required: true
       new_branch_name:
-        description: 'The name of the new branch to create in the current repository'
+        description: 'The name of the new branch to create in this repository with the pulled files'
         required: true
 
 jobs:
@@ -29,7 +29,7 @@ jobs:
       - name: Create a new branch with the pulled content
         run: |
           git checkout -b ${{ inputs.new_branch_name }}
-          git add .
+          git add model
           git commit -m "Pulled content from ${{ inputs.source_repo }}:${{ inputs.source_branch }}"
           git push origin ${{ inputs.new_branch_name }}
         env:
