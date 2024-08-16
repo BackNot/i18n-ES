@@ -1,0 +1,33 @@
+name: Manual Pull and Create Branch
+
+on:
+  workflow_dispatch:
+    inputs:
+      source_repo:
+        description: 'The URL of the repository to pull from'
+        required: true
+      source_branch:
+        description: 'The branch to pull from the source repository'
+        required: true
+      new_branch_name:
+        description: 'The name of the new branch to create in the current repository'
+        required: true
+
+jobs:
+  pull_and_create_branch:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout current repo
+        uses: actions/checkout@v3
+      - name: Pull content from another repository
+        run: |
+          git clone --branch ${{ inputs.source_branch }} --single-branch ${{ inputs.source_repo }} temp-repo
+          rm -rf temp-repo/.git
+          rsync -a --exclude='.git' temp-repo/ .
+      - name: Create a new branch with the pulled content
+        run: |
+          git checkout -b ${{ inputs.new_branch_name }}
+          git add .
+          git commit -m "Pulled content from ${{ inputs.source_repo }}:${{ inputs.source_branch }}"
+          git push origin ${{ inputs.new_branch_name }}
