@@ -47,7 +47,7 @@ jobs:
       - name: 'Generate model for website'
         uses: docker://backnot/owasp-samm-process-yaml-content:test
         with:
-          args: '-d model -o output'
+          args: '-d model -o output -l es'
       - name: 'Move generated files to common directory structure'
         run: |
           mkdir -p build/business-function/practice/stream
