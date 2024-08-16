@@ -17,6 +17,10 @@ jobs:
     steps:
       - name: Checkout current repo
         uses: actions/checkout@v3
+      - name: Set up Git with GitHub Actions bot identity
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
       - name: Pull content from another repository
         run: |
           git clone --branch ${{ inputs.source_branch }} --single-branch https://github.com/BackNot/core temp-repo
