@@ -1,22 +1,34 @@
 ---
 #===========================================================
-#OWASP SAMM2 Coverage Question template/sample
+#OWASP SAMM Activity Description
 #===========================================================
-#Link to the activity that this question helps measure
-activity: 27bb61f3c6344359b021caeaef5ab07e
-#Link to the answer set that contains the potential answers for this question
-answerSet: f77bd45a28c8493dbba6e53b2eafa20f
-#Unique identifier (GUID) used to refer to this maturity level.
-#Please generate another identifier for your specific maturity level.
-id: c4eb5618d1814173a995f8aea96f1c0b
-#One-sentence description of the criterium
-text: Do teams use security principles during design?
-#Order of this question for the activity (in case there would be multiple)
-order: 1
-#Qualifying Criterion
-quality:
-  - You have an agreed upon checklist of security principles
-  - You store your checklist in an accessible location
-  - Relevant stakeholders understand security principles
+#Link to the stream that this activity belongs to
+stream: 253b012094cf4e0988e08fd22609227d
+#Link to the practice level that this activity belongs to
+level: a11b78917dec4cfdad983cf6d1d17b61
+#Unique identifier (GUID) used to refer to this activity.
+#Please generate another identifier for your specific activity.
+id: 27bb61f3c6344359b021caeaef5ab07e
+#The title of this activity
+title: Здр
+#Describe the benefit that is achieved by implementing this activity
+benefit: здр2
+#A one sentence description of the activity
+shortDescription: здр3
+#A multi-paragraph description of the activity
+longDescription: |
+  здр4
+#The output of this particular activity
+results:
+#The different metrics that can be used to measure the success of the activity
+metrics:
+#A description of the costs required to implement the activity
+costs:
+#The (standard) roles involved in the implementation of this activity
+personnel:
+#Internal notes that might help the author
+notes:
+#References to other activities that are prerequisites to implement this one.
+relatedActivities:
 #Type Classification of the Document
-type: Question
+type: Activity
