@@ -28,3 +28,5 @@ jobs:
           git add .
           git commit -m "Pulled content from ${{ inputs.source_repo }}:${{ inputs.source_branch }}"
           git push origin ${{ inputs.new_branch_name }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
