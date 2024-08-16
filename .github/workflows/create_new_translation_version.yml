@@ -4,13 +4,13 @@ on:
   workflow_dispatch:
     inputs:
       source_branch:
-        description: 'The core repository branch to pull translation YAML files from'
+        description: 'The core repository branch to pull translation YAML files from (e.g. develop)'
         required: true
       source_folder:
-        description: 'The folder in the core branch to pull translation YAML files from (i.e. model)'
+        description: 'The folder in the core branch to pull translation YAML files from (e.g. model)'
         required: true
       new_branch_name:
-        description: 'The name of the new branch to create in this repository with the pulled files'
+        description: 'The name of the new branch to create in this repository with the pulled files (e.g. trans_2.0.8)'
         required: true
 
 jobs:
