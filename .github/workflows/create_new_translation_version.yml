@@ -32,7 +32,7 @@ jobs:
       - name: Create a new branch with the pulled content
         run: |
           git checkout -b ${{ inputs.new_branch_name }}
-          git add {{ inputs.source_folder }}
+          git add ${{ inputs.source_folder }}
           git commit -m "Pulled content from ${{ inputs.source_repo }}:${{ inputs.source_branch }}"
           git push origin ${{ inputs.new_branch_name }}
         env:
