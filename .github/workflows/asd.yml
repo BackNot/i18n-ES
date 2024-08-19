@@ -16,7 +16,7 @@ on:
         type: string
 jobs:
   call-workflow-1-in-local-repo:
-    uses: BackNot/core/.github/workflows/reusable.yml@f8ea989c74ba14fd23c027ba761ff9eecf5e63a5
+    uses: BackNot/core/.github/workflows/reusable.yml@d8ddbd2e447ee24bbcd4a15472dd57c60834285b
     with:
       language: es
       branch: ${{inputs.branch}}
