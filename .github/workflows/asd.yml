@@ -4,12 +4,16 @@ name: CI
 
 # Controls when the workflow will run
 on:
-  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
-
+    inputs:
+      branch:
+        description: 'Enter branch to use YAML files from'
+        required: true
+        type: string
 jobs:
   call-workflow-1-in-local-repo:
     uses: BackNot/core/.github/workflows/reusable.yml@415c9245e6ebf7c3d0d83188f830a4fcf2f24136
     with:
       language: es
+      branch: ${{inputs.branch}}
     secrets: inherit
