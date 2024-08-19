@@ -21,4 +21,3 @@ jobs:
       language: es
       branch: ${{inputs.branch}}
       model_folder: ${{inputs.model_folder}}
-    secrets: inherit
