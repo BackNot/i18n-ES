@@ -12,3 +12,4 @@ jobs:
     uses: github.com/BackNot/core/.github/workflows/reusable.yml@415c9245e6ebf7c3d0d83188f830a4fcf2f24136
     with:
       language: es
+    secrets: inherit
