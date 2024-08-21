@@ -18,7 +18,7 @@ on:
 
 jobs:
   shared-workflow:
-    uses: BackNot/core/.github/workflows/blank.yml@d8ddbd2e447ee24bbcd4a15472dd57c60834285b
+    uses: BackNot/core/.github/workflows/blank.yml@89d8e651e96ddcd31c30ed09a9863ee0b53eff99
     with:
       source_branch: ${{inputs.source_branch}}
       source_folder: ${{inputs.source_folder}}
