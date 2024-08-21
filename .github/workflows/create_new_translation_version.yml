@@ -1,8 +1,11 @@
-name: Create new translation version branch
+# This is the workflow which will call the shared workflow which will clone the english model files
 
+name: Get English files
+
+# Controls when the workflow will run
 on:
   workflow_dispatch:
-    inputs:
+     inputs:
       source_branch:
         description: 'The core repository branch to pull translation YAML files from (e.g. develop)'
         required: true
@@ -14,24 +17,9 @@ on:
         required: true
 
 jobs:
-  pull_and_create_branch:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout current repo
-        uses: actions/checkout@v3
-      - name: Set up Git with GitHub Actions bot identity
-        run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
-      - name: Pull content from another repository
-        run: |
-          git clone --branch ${{ inputs.source_branch }} --single-branch https://github.com/BackNot/core temp-repo
-          rm -rf temp-repo/.git
-          rsync -a --exclude='.git' temp-repo/ .
-      - name: Create a new branch with the pulled content
-        run: |
-          git checkout -b ${{ inputs.new_branch_name }}
-          git add ${{ inputs.source_folder }}
-          git commit -m "Pulled content from ${{ inputs.source_repo }}:${{ inputs.source_branch }}"
-          git push origin ${{ inputs.new_branch_name }}
+  shared-workflow:
+    uses: owaspsamm/core/.github/workflows/blank.yml@d8ddbd2e447ee24bbcd4a15472dd57c60834285b
+    with:
+      source_branch: ${{inputs.source_branch}}
+      source_folder: ${{inputs.source_folder}}
+      new_branch_name: ${{inputs.new_branch_name}}
